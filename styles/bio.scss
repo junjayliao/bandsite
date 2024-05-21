@@ -1,0 +1,190 @@
+// 变量定义
+$primary-color: #333;
+$secondary-color: #fff;
+$accent-color: #db7a4e;
+$nav-background-color: #323232;
+$font-family: 'Verdana', sans-serif;
+$hero-background-image: 'assets/Images/hero-bio.jpg';
+
+// 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $secondary-color;
+  color: $primary-color;
+  line-height: 1.6;
+}
+
+// Header 样式
+.header {
+  background-color: $nav-background-color;
+  border-bottom: 1px solid rgba($primary-color, 0.1);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: $nav-background-color;
+
+  &__logo {
+    font-size: 1.5rem;
+    color: $secondary-color;
+    text-decoration: none;
+    background-color: $nav-background-color;
+    height: 20px;
+    max-width: 120px;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    margin-left: 1rem;
+
+    &__item {
+      margin-left: 1rem;
+
+      &__link {
+        text-decoration: none;
+        color: $secondary-color;
+        font-size: 1rem;
+
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+// Hero 样式
+.hero {
+  background-image: url(#{$..assets/Images/hero-bio.jpg});
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 1rem;
+  text-align: center;
+  color: $secondary-color;
+
+  &__title {
+    font-size: 3rem;
+    color: $secondary-color;
+  }
+}
+
+// Main 样式
+.main {
+  padding: 1rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+}
+
+.bio {
+
+
+  &__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__quote {
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid $accent-color;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    cite {
+      display: block;
+      text-align: right;
+      color: $primary-color;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+}
+
+// Footer 样式
+.footer {
+  background-color: $secondary-color;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid rgba($primary-color, 0.1);
+  color: $primary-color;
+}
+
+// 联系方式样式
+.contact {
+  &__address {
+    margin-bottom: 1rem;
+
+    a {
+      color: $accent-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// 响应式设计
+// 移动端样式已经默认写在上面
+
+// 平板端样式
+@media (min-width: 600px) {
+  .nav {
+    &__list {
+      &__item {
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  .bio {
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
+  }
+}
+
+// 桌面端样式
+@media (min-width: 900px) {
+  .nav {
+    padding: 1.5rem;
+  }
+
+  .main {
+    padding: 2rem;
+  }
+
+  .section {
+    &__title {
+      font-size: 2.5rem;
+    }
+  }
+}
