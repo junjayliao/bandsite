@@ -1,12 +1,12 @@
-// 变量定义
+
 $primary-color: #333;
 $secondary-color: #fff;
 $accent-color: #db7a4e;
 $nav-background-color: #323232;
 $font-family: 'Verdana', sans-serif;
-$hero-background-image: 'assets/Images/hero-bio.jpg';
+$hero-background-image: '../assets/Images/hero-bio.jpg';
 
-// 全局样式
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
 }
 
-// Header 样式
+
 .header {
   background-color: $nav-background-color;
   border-bottom: 1px solid rgba($primary-color, 0.1);
@@ -62,22 +62,25 @@ body {
   }
 }
 
-// Hero 样式
 .hero {
-  background-image: url(#{$..assets/Images/hero-bio.jpg});
+  background-image: url(#{$hero-background-image});
   background-size: cover;
   background-position: center;
-  padding: 5rem 1rem;
-  text-align: center;
+  padding: 15rem 1rem; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  text-align: left;
   color: $secondary-color;
 
   &__title {
     font-size: 3rem;
     color: $secondary-color;
+    margin-left: 1rem; 
   }
 }
 
-// Main 样式
+// Main 
 .main {
   padding: 1rem;
 }
@@ -93,18 +96,26 @@ body {
 }
 
 .bio {
-
-
   &__subtitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    margin-left: 15%;
   }
 
+  &__image {
+    max-width: 70%;
+    height: auto;
+    margin: 1rem auto; 
+    display: block;
+
   &__quote {
+    margin: 1rem auto; 
+    max-width: 70%;
     font-style: italic;
     margin-bottom: 1rem;
     padding-left: 1rem;
     border-left: 4px solid $accent-color;
+    font-weight: bold;
 
     p {
       margin-bottom: 0.5rem;
@@ -120,59 +131,61 @@ body {
   &__text {
     margin-bottom: 1rem;
     line-height: 1.8;
+    max-width: 70%;
+    margin: 1rem auto;
   }
-}
 
-// Footer 样式
-.footer {
-  background-color: $secondary-color;
-  text-align: center;
-  padding: 1rem;
-  border-top: 1px solid rgba($primary-color, 0.1);
-  color: $primary-color;
-}
+  &__text-container {
+    margin: 1rem auto; 
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 70%;
+    flex-direction: column;
 
-// 联系方式样式
-.contact {
-  &__address {
-    margin-bottom: 1rem;
-
-    a {
-      color: $accent-color;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
+    .bio__text {
+      flex: 1;
     }
   }
 }
 
-// 响应式设计
-// 移动端样式已经默认写在上面
+// Gallery 
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 
-// 平板端样式
+  .gallery__image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
 @media (min-width: 600px) {
-  .nav {
-    &__list {
-      &__item {
-        margin-left: 2rem;
-      }
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav__list {
+    .nav__item {
+      margin-left: 2rem;
     }
   }
 
-  .bio {
-    &__title {
-      font-size: 3rem;
-    }
+  .bio__title {
+    font-size: 2rem;
+  }
 
-    &__subtitle {
-      font-size: 2rem;
-    }
+  .bio__subtitle {
+    font-size: 2rem;
+  }
+
+  .bio__text-container {
+    flex-direction: row; 
   }
 }
 
-// 桌面端样式
 @media (min-width: 900px) {
   .nav {
     padding: 1.5rem;
@@ -182,9 +195,78 @@ body {
     padding: 2rem;
   }
 
-  .section {
-    &__title {
-      font-size: 2.5rem;
+  .section__title {
+    font-size: 2.5rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bio__text-container {
+    flex-direction: row; 
+  }
+}
+
+
+.footer {
+  background-color: $nav-background-color;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: $secondary-color;
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .footer__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .footer__contact {
+      margin-bottom: 1rem;
+
+      .footer__contact-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  @media (min-width: 600px) {
+    &__contacts {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 900px) {
+    &__contacts {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__legal {
+    margin-top: 1rem;
+
+    .footer__legal-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
