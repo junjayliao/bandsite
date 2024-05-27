@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BandSite - The Bees Knees</title>
     <link rel="stylesheet" href="styles/bio.css">
+    <script defer src="scripts/index-page.js"></script>
 </head>
 <body>
     <header class="header">
@@ -12,7 +13,7 @@
             <a href="#bio" id="logo" class="nav__logo">BANDSITE</a>
             <ul class="nav__list">
                 <li class="nav__item"><a href="#bio" class="nav__link">Biography</a></li>
-                <li class="nav__item"><a href="#shows" class="nav__link">Shows</a></li>
+            <li class="nav__item"><a href="pages/shows.html" class="nav__link">Shows</a></li>
             </ul>
         </nav>
     </header>
@@ -53,6 +54,21 @@
                 <img src="assets/Images/Photo-gallery-7.jpg" alt="Gallery Photo 7" class="gallery__image">
                 <img src="assets/Images/Photo-gallery-8.jpg" alt="Gallery Photo 8" class="gallery__image">
                 <img src="assets/Images/Photo-gallery-9.jpg" alt="Gallery Photo 9" class="gallery__image">
+            </div>
+        </section>
+        <section id="comments" class="comments section">
+            <h2 class="comments__title">Join the Conversation</h2>
+            <form class="comments__form" id="commentForm">
+                <label for="name" class="comments__label">NAME</label>
+                <input type="text" id="name" class="comments__input" name="name" placeholder="Enter your name" required>
+
+                <label for="comment" class="comments__label">COMMENT</label>
+                <textarea id="comment" class="comments__textarea" name="comment" placeholder="Add a new comment" required></textarea>
+
+                <button type="submit" class="comments__button">COMMENT</button>
+            </form>
+            <div class="comments__list" id="commentsList">
+            
             </div>
         </section>
     </main>
