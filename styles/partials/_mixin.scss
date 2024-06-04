@@ -1,0 +1,472 @@
+@mixin tablet {
+
+    @media screen and (max-width:1280px) {
+        .header {
+            height: 6.167vw;
+
+            .nav_logo {
+                width: 14.417vw;
+                font-size: 2.771vw;
+            }
+
+            .nav_list {
+                li {
+                    width: 9.208vw;
+                    font-size: 1.5vw;
+                }
+            }
+        }
+
+        main {
+             .banner_shows {
+                height: 61.25vw;
+                flex-wrap: wrap;
+
+                .banner_shows_text {
+                    width: 100%;
+
+                    p {
+                        font-size: 3.563vw;
+                    }
+
+                    h1 {
+                        font-size: 6.604vw;
+                    }
+                }
+
+                .shows_iframe {
+                    margin-top: 2.604vw;
+                    width: 80%;
+                    height: 20.833vw;
+                }
+            }
+            .bio {
+                h2 {
+                    font-size: 3.6vw;
+                }
+
+                .bio_image_box {
+                    padding: 0 50px;
+
+                    p {
+                        font-size: 2.5vw;
+                    }
+
+                    cite {
+                        font-size: 2vw;
+                    }
+
+                    h4 {
+
+                        font-size: 2.563vw;
+
+                    }
+
+                    .bio_image {
+                        height: 450px;
+                    }
+
+                    .bio_text-container {
+                        .bio_text {
+                            font-size: 1.7vw;
+                        }
+                    }
+
+                }
+            }
+
+            .gallery {
+                h2 {
+                    font-size: 3.6vw;
+                }
+
+                .gallery_grid {
+                    padding: 0px;
+
+                    img {
+                        width: 32%;
+                        margin: 0.26vw;
+                    }
+                }
+            }
+
+            .section {
+                h2 {
+                    font-size: 3.6vw;
+                    margin: 0;
+                }
+
+                .commentForm_box {
+                    width: 90%;
+
+                    .commentForm_box_form {
+                        input {
+                            height: 4vw;
+                        }
+
+                        textarea {
+                            height: 8vw;
+                        }
+
+                        .comments_button_box {
+                            .comments_button {
+                                padding: 1.042vw 2.083vw;
+                            }
+                        }
+
+                    }
+                }
+
+                .commentsList {
+                    width: 90%;
+
+                    li {
+                        padding: 80px 0;
+
+                        .like_box {
+                            bottom: 2.563vw;
+                            .like_number{
+                                margin-top: 0.52vw;
+                            }
+                        }
+
+                        .delete_icon {
+                            top: 1.563vw;
+                        }
+
+                        .comment_avatar {
+                            .round {
+                                width: 8.333vw;
+                                height: 8.333vw;
+                            }
+                        }
+
+                        .comment_content {
+                            .comment_content_title {
+                                h5 {
+                                    font-size: 2vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .shows {
+                padding: 20px 0;
+                flex-wrap: wrap;
+
+                h1 {
+                    width: 100%;
+                    margin-bottom: 50px;
+                }
+
+                .shows_conter {
+                    display: block;
+                }
+
+                .shows_mobile {
+                    display: none;
+                }
+
+            }
+        }
+
+        footer {
+            padding: 2.604vw;
+
+            .footer_title {
+
+                .footer_title_box {
+
+
+                    h1 {
+                        font-size: 4.604vw;
+
+                    }
+
+                    .footer_icon {
+                        margin: 0 0.781vw;
+                        width: 2.563vw;
+                        height: 2.563vw;
+                    }
+                }
+
+                .footer_logo {
+                    font-size: 3.354vw;
+                }
+            }
+
+            .footer_conter {
+                width: 100%;
+                padding: 2.604vw 0;
+                display: flex;
+
+                ul {
+                    width: 33%;
+
+                    li {
+                        margin: 2.604vw 0;
+                        font-size: 2.042vw;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+}
+
+;
+
+@mixin Mobile {
+    @media screen and (max-width:784px) {
+        .header {
+            height: 17.167vw;
+            flex-wrap: wrap;
+
+            .nav_logo {
+                width: 100%;
+                font-size: 5.771vw;
+                text-align: center;
+            }
+
+            .nav_list {
+                width: 100%;
+                justify-content: space-evenly;
+
+                li {
+                    width: 50%;
+                    font-size: 3.5vw;
+                }
+            }
+        }
+
+        main {
+            .banner_shows {
+                height: 61.25vw;
+                flex-wrap: wrap;
+
+                .banner_shows_text {
+                    width: 100%;
+
+                    p {
+                        font-size: 3.563vw;
+                    }
+
+                    h1 {
+                        font-size: 6.604vw;
+                    }
+                }
+
+                .shows_iframe {
+                    margin-top: 2.604vw;
+                    width: 80%;
+                    height: 20.833vw;
+                }
+            }
+
+            .bio {
+                h2 {
+                    font-size: 5.6vw;
+                }
+
+                .bio_image_box {
+                    padding: 0 50px;
+
+                    p {
+                        font-size: 2.7vw;
+                    }
+
+                    cite {
+                        font-size: 2.2vw;
+                    }
+
+                    h4 {
+
+                        font-size: 2.563vw;
+
+                    }
+
+                    .bio_image {
+                        height: 42.438vw;
+                    }
+
+                    .bio_text-container {
+                        flex-wrap: wrap;
+
+                        .bio_text {
+                            width: 100%;
+                            font-size: 2vw;
+                            margin: 30px 0;
+                        }
+                    }
+
+                }
+            }
+
+            .gallery {
+                h2 {
+                    font-size: 4.6vw;
+                }
+
+                .gallery_grid {
+                    padding: 0px;
+
+                    img {
+                        width: 100%;
+                        margin: 1.66vw 0;
+                    }
+                }
+            }
+
+            .section {
+                h2 {
+                    font-size: 4.6vw;
+                    margin: 0;
+                }
+
+                .commentForm_box {
+                    width: 100%;
+
+                    .commentForm_box_logo {
+                        img {
+                            width: 9.167vw;
+                            height: 9.167vw;
+                        }
+                    }
+
+                    .commentForm_box_form {
+                        input {
+                            height: 7vw;
+                        }
+
+                        textarea {
+                            height: 15vw;
+                        }
+
+                        .comments_button_box {
+                            .comments_button {
+                                width: 100%;
+                                height: 4.604vw;
+                                text-align: center;
+                                padding: 1.042vw 2.083vw;
+                            }
+                        }
+
+                    }
+                }
+
+                .commentsList {
+                    width: 90%;
+
+                    li {
+                        padding: 80px 0;
+
+                        .like_icon {
+                            bottom: 1.563vw;
+                        }
+
+                        .delete_icon {
+                            top: 1.563vw;
+                        }
+
+                        .comment_avatar {
+                            .round {
+                                width: 8.333vw;
+                                height: 8.333vw;
+                            }
+                        }
+
+                        .comment_content {
+                            .comment_content_title {
+                                h5 {
+                                    font-size: 2vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .shows {
+                padding: 20px 0px;
+                flex-wrap: wrap;
+
+                h1 {
+                    width: 100%;
+                }
+
+                .shows_conter {
+                    display: none;
+                }
+
+                .shows_mobile {
+                    display: block;
+
+                    .shows_mobile_list {
+                        li {
+                            padding: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        footer {
+            padding: 2.604vw;
+
+            .footer_title {
+
+                .footer_title_box {
+
+                    flex-wrap: wrap;
+
+                    h1 {
+                        font-size: 7.604vw;
+                        width: 100%;
+
+                    }
+
+                    .footer_icon {
+
+                        margin: 2vw 1.781vw;
+                        width: 4.563vw;
+                        height: 4.563vw;
+                    }
+                }
+
+                .footer_logo {
+                    display: none;
+                }
+            }
+
+            .footer_conter {
+                width: 100%;
+                padding: 2.604vw 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                ul {
+                    width: 100%;
+
+                    li {
+                        margin: 2.604vw 0;
+                        font-size: 3.042vw;
+                    }
+                }
+            }
+
+            .footer_logo_mobile {
+                display: block;
+                font-size: 6.083vw;
+                margin-bottom: 5.208vw
+            }
+
+        }
+    }
+}
+
+;

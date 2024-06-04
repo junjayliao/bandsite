@@ -1,73 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const showsSection = document.getElementById('shows');
 
-    const shows = [
-        { date: "Mon Sept 09 2024", venue: "Ronald Lane", location: "San Francisco, CA" },
-        { date: "Tue Sept 17 2024", venue: "Pier 3 East", location: "San Francisco, CA" },
-        { date: "Sat Oct 12 2024", venue: "View Lounge", location: "San Francisco, CA" },
-        { date: "Sat Nov 16 2024", venue: "Hyatt Agency", location: "San Francisco, CA" },
-        { date: "Fri Nov 29 2024", venue: "Moscow Center", location: "San Francisco, CA" },
-        { date: "Wed Dec 18 2024", venue: "Press Club", location: "San Francisco, CA" }
-    ];
 
-    const renderShow = (show) => {
-        const showElement = document.createElement('div');
-        showElement.className = 'show';
+let api_key = localStorage.getItem('api_key')
+let Arr = []
+const shows_conter_list = document.querySelector('.shows_conter_list')
+const shows_mobile_list = document.querySelector('.shows_mobile_list')
+let Band_api = new BandSiteApi(api_key)
 
-        const dateLabel = document.createElement('p');
-        dateLabel.className = 'show__label';
-        dateLabel.textContent = 'DATE';
-        
-        const dateElement = document.createElement('p');
-        dateElement.className = 'show__date';
-        dateElement.textContent = show.date;
+const setArr = async () => {
+    // comments
+    let res = await Band_api.getShows(api_key)
+    //res
+    console.log(res, 111);
+    Arr = res.map(item => {
+        const numericDate = item.date // timestamp in milliseconds
+        const date = new Date(numericDate); // create a Date object from the timestamp
 
-        const venueLabel = document.createElement('p');
-        venueLabel.className = 'show__label';
-        venueLabel.textContent = 'VENUE';
+        return { ...item, date: date.toDateString() }
+    })
+    console.log(Arr);
+    setCommentsList()
 
-        const venueElement = document.createElement('p');
-        venueElement.className = 'show__venue';
-        venueElement.textContent = show.venue;
+}
+setArr()
 
-        const locationLabel = document.createElement('p');
-        locationLabel.className = 'show__label';
-        locationLabel.textContent = 'LOCATION';
+const setCommentsList = () => {
+    let html = ''
+    let html_mobile = ''
+    for (let i = 0; i < Arr.length; i++) {
+        html = `
+          <li>
 
-        const locationElement = document.createElement('p');
-        locationElement.className = 'show__location';
-        locationElement.textContent = show.location;
+                            <h3>${Arr[i].date}</h3>
+                            <p>${Arr[i].place}</p>
+                            <p>${Arr[i].location}</p>
+                            <div class="button_buy">
+                                <button class='button_click'>BUY TICKETS</button>
+                            </div>
+                        </li>
+        `
+        html_mobile = ` <li>
+                            <span>DATE </span>
+                            <h3>${Arr[i].date}</h3>
+                            <span>VENUE</span>
+                            <p>${Arr[i].place}</p>
+                            <span>LOCATION</span>
+                            <p>${Arr[i].location}</p>
+                            <div class="button_buy">
+                                <button class='button_click'>BUY TICKETS</button>
+                            </div>
+                        </li>`
+        const parser = new DOMParser();
 
-        const buttonElement = document.createElement('button');
-        buttonElement.className = 'show__button';
-        buttonElement.textContent = 'BUY TICKETS';
-        buttonElement.addEventListener('click', () => {
-            alert(`Tickets for ${show.venue} are not available yet.`);
-        });
+        const doc = parser.parseFromString(html, 'text/html');
+        shows_conter_list.appendChild(doc.body.firstChild)
+        const parser_mobile = new DOMParser();
 
-        showElement.appendChild(dateLabel);
-        showElement.appendChild(dateElement);
-        showElement.appendChild(venueLabel);
-        showElement.appendChild(venueElement);
-        showElement.appendChild(locationLabel);
-        showElement.appendChild(locationElement);
-        showElement.appendChild(buttonElement);
+        const doc_mobile = parser_mobile.parseFromString(html_mobile, 'text/html');
+        shows_mobile_list.appendChild(doc_mobile.body.firstChild)
+    }
 
-        showsSection.appendChild(showElement);
-    };
-
-    shows.forEach(renderShow);
-
-    showsSection.addEventListener('click', (event) => {
-        const showElements = document.querySelectorAll('.show');
-        showElements.forEach((showElement) => {
-            showElement.classList.remove('show--selected');
-        });
-
-        if (event.target.classList.contains('show')) {
-            event.target.classList.add('show--selected');
-        } else if (event.target.closest('.show')) {
-            event.target.closest('.show').classList.add('show--selected');
-        }
-    });
-});
+}
