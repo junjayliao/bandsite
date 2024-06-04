@@ -1,69 +1,125 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const commentForm = document.getElementById('commentForm');
-    const commentsList = document.getElementById('commentsList');
 
-    const comments = [
-        {
-            name: "Isaac Tadesse",
-            timestamp: "10/20/2023",
-            text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-        },
-        {
-            name: "Christina Cabrera",
-            timestamp: "10/28/2023",
-            text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-        },
-        {
-            name: "Victor Pinto",
-            timestamp: "11/02/2023",
-            text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
+const url = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/'
+let api_key = ''
+let Arr = []
+const commentsList = document.querySelector('.commentsList')
+const name_text = document.querySelector('.name_text')
+const textarea_text = document.querySelector('.textarea_text')
+const comments_button = document.querySelector('.comments_button')
+let Band_api = new BandSiteApi(api_key)
+// register
+const setRegister = async () => {
+    let res = await axios.get(url + 'register', {
+        params: {
+
         }
-    ];
-    const displayComment = (comment) => {
-        const commentElement = document.createElement('div');
-        commentElement.className = 'comment';
+    })
+    //res
 
-        const avatarElement = document.createElement('div');
-        avatarElement.className = 'comment__avatar';
-        commentElement.appendChild(avatarElement);
+    api_key = res.data.api_key
+    console.log(api_key);
+    localStorage.setItem('api_key', api_key)
+    setArr()
 
-        const contentElement = document.createElement('div');
-        contentElement.className = 'comment__content';
+}
+setRegister()
+const setArr = async () => {
 
-        const nameElement = document.createElement('p');
-        nameElement.innerHTML = `<strong>${comment.name}</strong> <span>${comment.timestamp}</span>`;
-        contentElement.appendChild(nameElement);
-        
-        const textElement = document.createElement('p');
-        textElement.textContent = comment.text;
-        contentElement.appendChild(textElement);
+    let res = await Band_api.getComments()
 
-        commentElement.appendChild(contentElement);
+    //res
+    console.log(res);
+    Arr = res.map(item => {
+        const numericDate = item.timestamp // timestamp in milliseconds
+        const date = new Date(numericDate); // create a Date object from the timestamp
 
-        commentsList.appendChild(commentElement);
-    };
+        return { ...item, timestamp: date.toDateString() }
+    })
+    console.log(Arr);
+    setCommentsList()
 
- 
-    const renderComments = () => {
-        commentsList.innerHTML = '';
-        comments.slice().reverse().forEach(displayComment);
-    };
+}
 
-   
-    commentForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        const name = event.target.name.value;
-        const text = event.target.comment.value;
-        const timestamp = new Date().toLocaleDateString();
 
-        const newComment = { name, timestamp, text };
-        comments.push(newComment);
-        
-        renderComments();
-        event.target.reset();
-    });
+const setCommentsList = () => {
+    let html = ''
+    commentsList.innerHTML = ''
+    for (let i = 0; i < Arr.length; i++) {
+        html = `
+          <li>
+                    <img src="assets/Icons/SVG//icon-delete.svg" alt="Facebook" data-id=${Arr[i].id} data-type='delete' class="delete_icon">
+                    <div class="like_box"><img src="assets/Icons/SVG//icon-like.svg" data-id=${Arr[i].id}  data-type='like' alt="Facebook" class="like_icon">
+                        <span class="like_number">${Arr[i].likes}</span>
+                    </div>
+                    <div class="comment_avatar">
+                        <div class="round"></div>
+                    </div>
+                    <div class="comment_content">
+                        <div class="comment_content_title">
+                            <h5>${Arr[i].name}</h5>
+                            <span>${Arr[i].timestamp}</span>
+                        </div>
+                        <div class="comment_content_text">
+                            ${Arr[i].comment}
+                        </div>
+                    </div>
+                </li>
+        `
 
-  
-    renderComments();
-});
+        const parser = new DOMParser();
+
+        const doc = parser.parseFromString(html, 'text/html');
+        commentsList.appendChild(doc.body.firstChild)
+    }
+
+}
+
+commentsList.addEventListener('click', async (e) => {
+    const { id, type } = e.target.dataset
+    if (type == 'like') {
+
+        let res = await Band_api.putComments(id)
+        //res
+        console.log(res);
+        setArr()
+
+
+    }
+    if (type == 'delete') {
+        let res = await Band_api.deleteComments(id)
+        //res
+        console.log(res);
+        setArr()
+
+
+    }
+
+
+
+})
+comments_button.addEventListener('click', async (e) => {
+
+    e.preventDefault();
+
+    let params = {
+        "name": name_text.value,
+        "comment": textarea_text.value,
+
+    }
+    let res = await Band_api.postComment(params)
+    let obj = res
+    const numericDate = obj.timestamp // timestamp in milliseconds
+    const date = new Date(numericDate); // create a Date object from the timestamp
+
+
+
+    obj.timestamp = date.toDateString()
+    console.log(obj);
+    Arr.unshift(obj)
+    setCommentsList()
+    name_text.value = ''
+    textarea_text.value = ''
+
+
+
+})

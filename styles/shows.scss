@@ -1,245 +1,266 @@
+@import "./partials/_variables";
+@import "./partials/_font";
+@import "./partials/_mixin";
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Verdana', sans-serif;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  .header {
-    background-color: #323232;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
-  
-    &__logo {
-      font-size: 1.5rem;
-      color: #fff;
-      text-decoration: none;
-      background-color: #323232;
-      height: 20px;
-      max-width: 120px;
-    }
-  }
-  
-  .nav {
+    color: $White;
+    font-family: $font-famitl;
+
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    height: 4.167vw;
+    padding: 0 7.813vw;
+    background-color: $Bandsite-Black;
     display: flex;
     align-items: center;
-    padding: 1rem;
-    background-color: #323232;
-  
-    &__list {
-      list-style: none;
-      display: flex;
-      margin-left: 1rem;
-  
-      .nav__item {
-        margin-left: 1rem;
-  
-        .nav__link {
-          text-decoration: none;
-          color: #fff;
-          font-size: 1rem;
-  
-          &:hover {
-            color: #db7a4e;
-          }
+
+    .nav_logo {
+        width: 10.417vw;
+        font-weight: 100;
+        font-size: 1.771vw;
+        font-family: 'normal';
+
+    }
+
+    .nav_list {
+        display: flex;
+        height: 4.167vw;
+
+        li {
+            margin: 0 0.521vw;
+            line-height: 4.167vw;
+            width: 5.208vw;
+            text-align: center;
+            &:hover {
+                border-bottom: 0.156vw solid $White;
+            }
         }
-      }
+
     }
-  }
-  
-  .hero {
-    position: relative;
-    text-align: center;
-    color: white;
-  
-    &__background {
-      width: 100%;
-      height: 50vh;
-      object-fit: cover;
-      opacity: 0.7;
-    }
-  
-    &__text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: left;
-    }
-  
-    &__subtitle {
-      font-size: 1.5rem;
-    }
-  
-    &__title {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-  
-    iframe {
-      margin-top: 1rem;
-      width: 100%;
-      max-width: 500px;
-      border: none;
-    }
-  }
-  
-  .main {
-    padding: 1rem;
-  
-    &__title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-  }
-  
-  .section {
-    margin-bottom: 2rem;
-  }
-  
-  .shows {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    .show {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      margin: 1rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      width: 100%;
-      max-width: 400px;
-      transition: background-color 0.3s, transform 0.3s;
-  
-      &__label {
-        font-size: 0.875rem;
-        color: #999;
-      }
-  
-      &__date,
-      &__venue,
-      &__location {
-        margin: 0.5rem 0;
-      }
-  
-      &__button {
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-        margin-top: 1rem;
+
+
+}
+
+main{
+    .banner_shows {
         width: 100%;
-      }
-  
-      &:hover {
-        background-color: #eee;
-        transform: scale(1.05);
-      }
-  
-      &--selected {
-        background-color: #ddd;
-        border-color: #000;
-      }
-    }
-  }
-  
-  .footer {
-    background-color: #323232;
-    text-align: center;
-    padding: 2rem 1rem;
-    color: #fff;
-  
-    &__title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  
-    &__socials {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-  
-      .footer__icon {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  
-    &__contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-  
-      .footer__contact {
-        margin-bottom: 1rem;
-  
-        .footer__contact-title {
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
+        height: 36.458vw;
+        position: relative;
+        background-image: url('../Assets/Images/hero-shows.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+       align-items: center;
+       .banner_shows_text{
+          margin-left: 5.208vw;
+        z-index: 1111;
+        width: 50%;
+         h1 {
+            font-size: 4.167vw;
+          
+            font-weight: 300;
         }
-      }
+          p{
+            font-size: 1.563vw;
+            color: $White;
+          
+          
+             margin-bottom: 2.604vw;
+          }
+       }
+      
+        .shows_iframe{
+      width: 600px;
+      height: 300px;
+      z-index: 111;
+       }
+        .shadow {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
-  
-    &__legal {
-      margin-top: 1rem;
-  
-      .footer__legal-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
+    .shows{
+        width: 100%;
+        padding: 2.604vw 10.417vw;
+        display: flex;
+        h1{
+            color: black;
+            font-size: 3.083vw;
+            width: 15.625vw;
+            text-align: center;
+        }
+        .shows_conter{
+            width: 100%;
+            display: block;
+
+            .shows_conter_title{
+                width: 100%;
+                height: 1.563vw;
+                display: flex;
+                align-items: center;
+               padding: 0 2.604vw;
+                span{
+                    width: 25%;
+                    height: 100%;
+                    line-height: 1.563vw;
+                 
+                    color: $Silver;
+                }
+            }
+             .shows_conter_list{
+            width: 100%;
+           .Active{
+            background-color: $Silver !important;
+            color: black;
+           }
+            li{
+                width: 100%;
+                padding: 2.604vw ;
+                display: flex;
+                align-items: center;
+                border-bottom: 0.052vw solid $Silver;
+                transition: 1.5s all;
+                &:hover{
+                    transform: scale(1.1);
+                    background-color: $Silver;
+                    border-radius: 10px;
+                }
+                h3{
+                    width: 25%;
+                    color: black;
+                }
+                p{
+                    width: 25%;
+                    color: black;
+                }
+                .button_buy{
+                    width: 25%;
+                    button{
+                      width: 7.813vw;
+                      height: 2.083vw;
+                      background-color: $Bandsite-Black;
+                      border: none;
+                      border-radius: 0.104vw;
+                      line-height: 2.083vw;
+                      cursor: pointer;
+                      margin: 0 auto;
+                      display: block;
+                    }
+                }
+            }
+        }
+        }
+       .shows_mobile{
+          width: 100%;
+          display: none;
+          .shows_mobile_list{
+            width: 100%;
+            li{
+                border-bottom: 0.052vw solid $Silver;
+                width: 100%;
+                padding: 1.563vw;
+                span{
+                    display: block;
+                    width: 100%;
+                    color: $Silver;
+                    margin-top: 3.042vw;
+                    font-size: 3.042vw;
+                }
+                p{
+                    width: 100%;
+                    color: black;
+                     font-size: 4.406vw;
+                }
+                h3{
+                    width: 100%;
+                    color: black;
+                    font-size: 4.406vw;
+                }
+                   .button_buy{
+                   width: 100%;
+                   margin-top: 2.604vw;
+                    button{
+                      width: 100%;
+                      height: 6.604vw;
+                      background-color: $Bandsite-Black;
+                      border: none;
+                      font-size: 3.042vw;
+                      border-radius: 0.66vw;
+                      line-height: 2.604vw;
+                      cursor: pointer;
+                      margin: 0 auto;
+                      display: block;
+                    }
+                }
+            }
+          }
+       }
     }
-  }
-  
-  @media (min-width: 600px) {
-    .footer__contacts {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  
-  @media (min-width: 900px) {
-    .footer__contacts {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .shows {
-      .show {
-        flex-direction: row;
+}
+
+footer {
+    width: 100%;
+    // height: 26.042vw;
+    background-color: $Bandsite-Black;
+    padding: 2.604vw 7.813vw;
+
+    .footer_title {
+        width: 100%;
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
-        max-width: 100%;
-        width: 80%;
-  
-        &__label {
-          flex: 1;
+       
+        .footer_title_box{
+            display: flex;
+            align-items: center;
+             h1 {
+            font-size: 2.604vw;
+            margin-right: 5.208vw;
         }
-  
-        &__date,
-        &__venue,
-        &__location {
-          flex: 2;
+        .footer_icon{
+            margin: 0 0.781vw;
+            width: 1.563vw;
+            height: 1.563vw;
         }
-  
-        &__button {
-          flex: 1;
-          max-width: 150px;
         }
-      }
+        .footer_logo{
+            font-size: 1.354vw;
+        }
     }
-  }
+    .footer_conter{
+        width: 100%;
+        padding: 2.604vw 0;
+        display: flex;
+        ul{
+            width: 25%;
+            
+            li{
+                margin: 2.604vw 0;
+                font-size: 1.042vw;
+            }
+        }
+    }
+    .footer_logo_mobile{
+        display: none
+    }
   
+}
+@include tablet;
+@include Mobile;

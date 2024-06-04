@@ -1,64 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BandSite - The Bees Knees - Shows</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/shows.css">
-    <script defer src="../scripts/build-shows-page.js"></script>
+    <script src="../scripts/axios.js"></script><!-- or  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 </head>
+
 <body>
     <header class="header">
-        <nav class="nav">
-            <a href="../index.html" id="logo" class="nav__logo">BANDSITE</a>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="../index.html#bio" class="nav__link">Biography</a></li>
-                <li class="nav__item"><a href="shows.html" class="nav__link">Shows</a></li>
-            </ul>
-        </nav>
+        <a href="../index.html" id="logo" class="nav_logo">BANDSITE</a>
+        <ul class="nav_list">
+            <li><a href="../index.html">Biography</a></li>
+            <li><a href="./pages/shows.html">Shows</a></li>
+        </ul>
     </header>
+    <main>
+        <div class="banner_shows">
+            <div class="shadow"></div>
+            <div class="banner_shows_text">
+                <p>Beautiful Beasts Album</p>
+                <h1>Stripes of Yellow <br>
+                    x For The Stings</h1>
 
-    <section class="hero">
-        <img src="../assets/images/hero-shows.jpg" alt="Hero Shows Background" class="hero__background">
-        <div class="hero__text">
-            <h2 class="hero__subtitle">Beautiful Beasts Album</h2>
-            <h1 class="hero__title">Stripes of Yellow x For The Stings</h1>
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            </div>
+            <iframe class="shows_iframe" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
         </div>
-    </section>
+        <section>
 
-    <main class="main">
-        <h1 class="main__title">Shows</h1>
-        <section id="shows" class="shows section">
-           
+            <section class="shows">
+                <h1>Shows</h1>
+                <div class="shows_conter">
+                    <p class="shows_conter_title">
+                        <span>DATE </span>
+                        <span>VENUE</span>
+                        <span>LOCATION</span>
+                        <span></span>
+                    </p>
+                    <ul class="shows_conter_list">
+
+                    </ul>
+                </div>
+                <div class="shows_mobile">
+                    <ul class="shows_mobile_list">
+
+                    </ul>
+                </div>
+            </section>
         </section>
     </main>
+    <footer>
+        <div class="footer_title">
 
-    <footer class="footer">
-        <h2 class="footer__title">Get in Touch</h2>
-        <div class="footer__socials">
-            <img src="../assets/Icons/SVG/Icon-facebook.svg" alt="Facebook" class="footer__icon">
-            <img src="../assets/Icons/SVG/Icon-twitter.svg" alt="Twitter" class="footer__icon">
-            <img src="../assets/Icons/SVG/Icon-instagram.svg" alt="Instagram" class="footer__icon">
-        </div>
-        <div class="footer__contacts">
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">The Bees Knees Management</h3>
-                <p>503 Broadway Penthouse,<br> New York, NY 10012, USA<br>info@thebeesknees.com</p>
+            <div class="footer_title_box">
+                <h1>Get in Touch</h1>
+                <img src="../assets/Icons/SVG/Icon-Instagram.svg" alt="Instagram" class="footer_icon">
+                <img src="../assets/Icons/SVG/Icon-facebook.svg" alt="Facebook" class="footer_icon">
+                <img src="../assets/Icons/SVG/Icon-twitter.svg" alt="Twitter" class="footer_icon">
+
             </div>
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">Limitless Artist Group</h3>
-                <p>Booking Agent for<br>US / South America / Japan<br>bookings@limitlessag.com</p>
-            </div>
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">ARCH Entertainment</h3>
-                <p>Booking Agent for<br> UK / EU / AU<br>bookings@archentertainment.com</p>
-            </div>
+            <a href="index.html" class="footer_logo">BANDSITE</a>
         </div>
-        <div class="footer__legal">
-            <h3 class="footer__legal-title">BANDSITE</h3>
-            <p>Copyright The Bees Knees © 2023 All Rights Reserved</p>
+        <div class="footer_conter">
+            <ul>
+                <li>The Bees Knees Management</li>
+                <li>503 Broadway Penthouse,<br>
+
+                    New York, NY 10012, USA</li>
+                <li>info@thebeesknees.com</li>
+            </ul>
+            <ul>
+                <li>Limitless Artist Group</li>
+                <li>Booking Agent for
+                    <br>
+                    USA / South America / Japan
+                </li>
+                <li>bookings@limitlessag.com</li>
+            </ul>
+            <ul>
+                <li>ARCH Entertainment</li>
+                <li>Booking Agent for <br>
+
+                    UK / EU / AU</li>
+                <li>bookings@archentertainment.com</li>
+            </ul>
         </div>
+        <a href="index.html" class="footer_logo_mobile">BANDSITE</a>
+        <p>Copyright The Bees Knees © 2023 All Rights Reserved</p>
     </footer>
+    <script src="../scripts/BandSite.js"> </script>
+    <script src="../scripts/build-shows-page.js"></script>
 </body>
+
 </html>

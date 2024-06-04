@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BandSite - The Bees Knees</title>
+    <title>Document</title>
     <link rel="stylesheet" href="styles/bio.css">
-    <script defer src="scripts/index-page.js"></script>
+    <script src="scripts/axios.js"></script><!-- or  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 </head>
+
 <body>
     <header class="header">
-        <nav class="nav">
-            <a href="#bio" id="logo" class="nav__logo">BANDSITE</a>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#bio" class="nav__link">Biography</a></li>
-            <li class="nav__item"><a href="pages/shows.html" class="nav__link">Shows</a></li>
-            </ul>
-        </nav>
+        <a href="index.html" id="logo" class="nav_logo">BANDSITE</a>
+        <ul class="nav_list">
+            <li><a href="index.html">Biography</a></li>
+            <li><a href="./pages/shows.html">Shows</a></li>
+        </ul>
+
     </header>
-
-    <section class="hero">
-        <h1 class="hero__title">The Bees Knees</h1>
-    </section>
-
-    <main class="main">
-        <section id="bio" class="section bio">
-        
-            <h2 class="bio__subtitle">About the Musicians</h2>
-            <img src="assets/Images/band.jpg" alt="The Bees Knees Band" class="bio__image">
-            <blockquote class="bio__quote">
-                <p>“We push each other to be the best. It’s not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”</p>
+    <main>
+        <div class="banner">
+            <div class="shadow"></div>
+            <h1>The Bees Knees</h1>
+        </div>
+        <section class="bio">
+            <h2>About the Musicians</h2>
+            <div class="bio_image_box">
+                <img src="assets/Images/band.jpg" alt="The Bees Knees Band" class="bio_image">
+                <p>“We push each other to be the best. It’s not uncommon for one <br> of us to say ‘this needs to be
+                    better,
+                    back to the
+                    drawing board’”</p>
                 <cite>- Lead vocalist of The Bees Knees</cite>
-            </blockquote>
-            <h4 class="bio__subtitle">The Bees Knees</h4>
-            <div class="bio__text-container">
-                <p class="bio__text">
-                    The Bees Knees is a pop rock band originating from San Francisco, California. The band consists of a dynamic lineup featuring two lead vocalists, two guitarists, a bassist, a keyboardist and a drummer. The band achieved its first commercial success as an unsigned act, drawing attention from their future manager. Having extensive experience working with both new and seasoned acts, the manager was confident the band could succeed even further with more support, pushing The Bees Knees to sign with a well known record label.
-                </p>
-                <p class="bio__text">
-                    From there, the band has soared, gaining international recognition and ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s original and organic attitude, solidifying their place as one of the hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to their candid and authentic performances on stage. The Bees Knees are currently recording their second studio album, looking to be released in early 2024.
-                </p>
+                <h4>The Bees Knees</h4>
+                <div class="bio_text-container">
+                    <p class="bio_text">
+                        The Bees Knees is a pop rock band originating from San Francisco, California. The band consists
+                        of a dynamic lineup
+                        featuring two lead vocalists, two guitarists, a bassist, a keyboardist and a drummer. The band
+                        achieved its first
+                        commercial success as an unsigned act, drawing attention from their future manager. Having
+                        extensive experience
+                        working with both new and seasoned acts, the manager was confident the band could succeed even
+                        further with more
+                        support, pushing The Bees Knees to sign with a well known record label.
+                    </p>
+                    <p class="bio_text">
+                        From there, the band has soared, gaining international recognition and ranking in the top 10 on
+                        the Poster Charts.
+                        New fans immediately fell in love with the band’s original and organic attitude, solidifying
+                        their place as one of
+                        the hottest and fastest up and coming acts of this century. Fans affectionately refer to
+                        themselves as “The Hive”
+                        and are drawn to their candid and authentic performances on stage. The Bees Knees are currently
+                        recording their
+                        second studio album, looking to be released in early 2024.
+                    </p>
+                </div>
             </div>
-        </section>
 
-        <section id="gallery" class="section gallery">
-            <h2 class="section__title">Photo Gallery</h2>
-            <div class="gallery__grid">
+        </section>
+        <section class="gallery">
+            <h2>Photo Gallery</h2>
+            <div class="gallery_grid">
                 <img src="assets/Images/Photo-gallery-1.jpg" alt="Gallery Photo 1" class="gallery__image">
                 <img src="assets/Images/Photo-gallery-2.jpg" alt="Gallery Photo 2" class="gallery__image">
                 <img src="assets/Images/Photo-gallery-3.jpg" alt="Gallery Photo 3" class="gallery__image">
@@ -56,49 +74,72 @@
                 <img src="assets/Images/Photo-gallery-9.jpg" alt="Gallery Photo 9" class="gallery__image">
             </div>
         </section>
-        <section id="comments" class="comments section">
-            <h2 class="comments__title">Join the Conversation</h2>
-            <form class="comments__form" id="commentForm">
-                <label for="name" class="comments__label">NAME</label>
-                <input type="text" id="name" class="comments__input" name="name" placeholder="Enter your name" required>
+        <section class="section">
+            <h2>Join the Conversation</h2>
+            <div class="commentForm_box">
+                <div class="commentForm_box_logo">
+                    <img src="Assets/Images/Mohan-muruge.jpg" alt="">
+                </div>
+                <div class="commentForm_box_form">
+                    <form>
+                        <label for="name">NAME</label>
+                        <input type="text" placeholder="Enter your name" class="name_text">
+                        <label for="name">COMMENT</label>
 
-                <label for="comment" class="comments__label">COMMENT</label>
-                <textarea id="comment" class="comments__textarea" name="comment" placeholder="Add a new comment" required></textarea>
+                        <textarea name="" id="" placeholder="Add a new comment" class="textarea_text"></textarea>
+                        <div class="comments_button_box"><button class="comments_button">COMMENT</button>
+                        </div>
+                    </form>
 
-                <button type="submit" class="comments__button">COMMENT</button>
-            </form>
-            <div class="comments__list" id="commentsList">
-            
+                </div>
+
             </div>
+            <ul class="commentsList">
+
+            </ul>
         </section>
     </main>
+    <footer>
+        <div class="footer_title">
 
-    <footer class="footer">
-        <h2 class="footer__title">Get in Touch</h2>
-        <div class="footer__socials">
-            <img src="assets/Icons/SVG/Icon-facebook.svg" alt="Facebook" class="footer__icon">
-            <img src="assets/Icons/SVG/Icon-twitter.svg" alt="Twitter" class="footer__icon">
-            <img src="assets/Icons/SVG/Icon-Instagram.svg" alt="Instagram" class="footer__icon">
-        </div>
-        <div class="footer__contacts">
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">The Bees Knees Management</h3>
-                <p>503 Broadway Penthouse,<br> New York, NY 10012, USA<br>info@thebeesknees.com</p>
+            <div class="footer_title_box">
+                <h1>Get in Touch</h1>
+                <img src="assets/Icons/SVG/Icon-Instagram.svg" alt="Instagram" class="footer_icon">
+                <img src="assets/Icons/SVG/Icon-facebook.svg" alt="Facebook" class="footer_icon">
+                <img src="assets/Icons/SVG/Icon-twitter.svg" alt="Twitter" class="footer_icon">
+
             </div>
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">Limitless Artist Group</h3>
-                <p>Booking Agent for<br>US / South America / Japan<br>bookings@limitlessag.com</p>
-            </div>
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">ARCH Entertainment</h3>
-                <p>Booking Agent for<br> UK / EU / AU<br>bookings@archentertainment.com</p>
-            </div>
+            <a href="index.html" class="footer_logo">BANDSITE</a>
         </div>
-        <div class="footer__legal">
-            <h3 class="footer__legal-title">BANDSITE</h3>
-            <p>Copyright The Bees Knees © 2023 All Rights Reserved</p>
+        <div class="footer_conter">
+            <ul>
+                <li>The Bees Knees Management</li>
+                <li>503 Broadway Penthouse,<br>
+
+                    New York, NY 10012, USA</li>
+                <li>info@thebeesknees.com</li>
+            </ul>
+            <ul>
+                <li>Limitless Artist Group</li>
+                <li>Booking Agent for
+                    <br>
+                    USA / South America / Japan
+                </li>
+                <li>bookings@limitlessag.com</li>
+            </ul>
+            <ul>
+                <li>ARCH Entertainment</li>
+                <li>Booking Agent for <br>
+
+                    UK / EU / AU</li>
+                <li>bookings@archentertainment.com</li>
+            </ul>
         </div>
+        <a href="index.html" class="footer_logo_mobile">BANDSITE</a>
+        <p>Copyright The Bees Knees © 2023 All Rights Reserved</p>
     </footer>
-
+    <script src='scripts/BandSite.js'></script>
+    <script src="scripts/index-page.js"></script>
 </body>
+
 </html>
